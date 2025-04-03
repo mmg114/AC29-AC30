@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
-import java.net.http.HttpResponse;
+
 
 @RestController
 @RequestMapping("/api/v1/articulo")
@@ -21,10 +21,6 @@ public class ArticulosController {
     @GetMapping("/{id}")
     public ResponseEntity<Articulo> getArticuloById(@PathVariable int id){
         Articulo articulo = new Articulo();
-        articulo.setId(123123);
-        articulo.setNombre("Articulo");
-        articulo.setDescripcion("Articulo");
-        articulo.setPrecio(new BigDecimal(10000));
         return new ResponseEntity<>(articulo,HttpStatus.ACCEPTED);
     }
 
