@@ -1,15 +1,21 @@
 package com.alkosto.tienda_online.domain;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.*;
+
 
 import java.math.BigDecimal;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Getter
+@Entity
 public class Articulo {
-    private int id;
+    @Id
+    private Long id;
     private String nombre;
     private String descripcion;
     private BigDecimal precio;
