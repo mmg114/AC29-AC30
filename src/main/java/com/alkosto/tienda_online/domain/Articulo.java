@@ -20,5 +20,4 @@ public class Articulo {
     private String descripcion;
     private BigDecimal precio;
     private String referencia;
-
 }
