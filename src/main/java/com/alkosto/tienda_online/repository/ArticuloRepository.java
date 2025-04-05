@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface ArticuloRepository extends JpaRepository<Articulo, Long> {
 
 
+    Articulo findByReferencia(String referencia);
 }

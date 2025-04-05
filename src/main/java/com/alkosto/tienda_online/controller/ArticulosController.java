@@ -2,8 +2,6 @@ package com.alkosto.tienda_online.controller;
 
 
 import com.alkosto.tienda_online.domain.Articulo;
-import com.alkosto.tienda_online.repository.ArticuloRepository;
-import com.alkosto.tienda_online.services.ArticuloService;
 import com.alkosto.tienda_online.services.IArticuloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,18 +29,21 @@ public class ArticulosController {
     }
 
     @PutMapping
-    public String modifyArticulo(){
-        return "modify Articulo";
+    public ResponseEntity<Articulo> modifyArticulo(@RequestBody Articulo articulo){
+        return new ResponseEntity<>( articuloService.update(articulo),HttpStatus.OK);
     }
 
-    @PostMapping
-    public String saveArticulo(){
-        return "save Articulo";
+    @PostMapping()
+    public ResponseEntity<Articulo> saveArticulo(@RequestBody Articulo articulo){
+        return new ResponseEntity<>( articuloService.save(articulo),HttpStatus.CREATED);
     }
 
-    @DeleteMapping
-    public String deleteArticulo(){
-        return "delete Articulo";
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteArticulo(@PathVariable Long id){
+        Articulo articulo = new Articulo();
+        articulo.setId(id);
+        articuloService.deleteById(articulo);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }
