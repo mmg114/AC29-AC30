@@ -23,9 +23,9 @@ public class ArticulosController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Articulo> getArticuloById(@PathVariable int id){
-        Articulo articulo = new Articulo();
-        return new ResponseEntity<>(articulo,HttpStatus.ACCEPTED);
+    public ResponseEntity<Articulo> getArticuloById(@PathVariable Long id){
+
+        return new ResponseEntity<>(articuloService.findById(id),HttpStatus.ACCEPTED);
     }
 
     @PutMapping

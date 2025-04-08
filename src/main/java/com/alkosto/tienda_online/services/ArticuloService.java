@@ -58,4 +58,9 @@ public class ArticuloService implements IArticuloService {
             throw new RuntimeException("Articulo no encontrado");
         }
     }
+
+    @Override
+    public Articulo findById(Long id) {
+        return repo.findById(id).orElseThrow(()->new RuntimeException("Articulo no encontrado"));
+    }
 }

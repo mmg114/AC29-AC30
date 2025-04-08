@@ -14,4 +14,6 @@ public interface IArticuloService {
     Articulo save(Articulo articulo);
 
     Articulo update(Articulo articulo);
+
+    Articulo findById(Long id);
 }
